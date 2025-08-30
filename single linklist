@@ -1,0 +1,135 @@
+#include <stdio.h>                  
+#include <stdlib.h>  // malloc
+
+struct node {                                // user based data type
+    int data;
+    struct node*next;
+};
+struct node*head,*temp,*newnode,*new,*prev,*nextnode,*tem;
+
+void print()       // for implementation of list
+{
+temp=head;
+while(temp!=0)
+{
+printf(" %d",temp->data);
+temp=temp->next;
+};
+
+}
+int main ()        
+{
+head=0;
+int choice=1;
+int pos=0;
+int del=0;
+while(choice!=0)
+{
+newnode=(struct node*)malloc(sizeof(struct node));
+printf("enter a data element ");
+scanf("%d", &newnode->data);
+newnode->next=0;
+if (head==0)
+{
+    head=temp=newnode;
+}
+else{
+   temp->next=newnode;
+   temp=newnode;
+
+
+};
+printf("do you wnat to continue yes or no (1/0)");
+scanf("%d",&choice);
+}
+print();
+new=(struct node*)malloc(sizeof(struct node));
+printf("\nfor insertion ");
+printf("\nenter a data element ");
+scanf("%d",&new->data);
+printf("enter the element after  which you want to insert element ");
+scanf("%d",&pos);
+temp=head;
+while(!(temp->next==0))
+
+{if(temp->data==pos)
+    {
+        new->next=temp->next;
+        temp->next=new;
+        break;
+
+    }
+else
+      temp=temp->next;
+}
+
+
+temp=head;
+while(temp!=0)
+{
+printf(" %d",temp->data);
+temp=temp->next;
+};
+
+printf("\nenter the element you want to delete");
+scanf(" %d",&del);
+temp=head;
+while(!(temp->next==0))
+{
+if (temp->data==del)
+{
+prev->next=temp->next;
+break;                      // it will help to remove infinte loop 
+}
+else{
+    prev=temp;
+    temp=temp->next;
+};
+}
+print();
+temp=head;
+tem=0;
+nextnode=0;
+while(!(temp==0))
+{
+tem=temp;
+temp=temp->next;
+nextnode=temp->next;
+temp->next=tem;
+temp=nextnode;
+};
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
